@@ -22,18 +22,15 @@
     ├── utils.py               // 보조 유틸 함수들 (예: operand 정규화, 레지스터 식별 등)
     └── reconstructed.c        // 결과 pseudocode가 저장되는 파일 (main.py에서 출력됨)
     ```
-    
-    <aside>
-    💡
-    
+
+    ```
     1. `main.py`에서 `parse_trace()`로 trace 파일을 파싱하고,
     2. `extract_anchor_block()`로 anchor 범위만 추출,
     3. `generate_pseudocode()`로 해당 명령어들을 해석 및 변환,
     4. `map_instruction()`으로 의미 있는 표현으로 매핑하여 출력함.
     
     → `reg_tracker.py`와 `utils.py`는 코드 해석 정밀도를 높이기 위해 사용됨.
-    
-    </aside>
+    ```
     
 - 각 파일은 역할이 나뉘어 있고, 전체 trace를 분석해서 pseudocode까지 뽑아내는 구조이다.
 - 전체 trace를 구조적으로 다루려다 보니, 메모리 사용량이 너무 커졌고 OOM(Out Of Memory) 문제가 발생했다.
